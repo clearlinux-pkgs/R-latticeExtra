@@ -4,7 +4,7 @@
 #
 Name     : R-latticeExtra
 Version  : 0.6.28
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz
 Summary  : Extra Graphical Utilities Based on Lattice
@@ -13,15 +13,15 @@ License  : GPL-2.0+
 Requires: R-RColorBrewer
 Requires: R-deldir
 Requires: R-ggplot2
+Requires: R-quantreg
 BuildRequires : R-RColorBrewer
 BuildRequires : R-deldir
 BuildRequires : R-ggplot2
-BuildRequires : clr-R-helpers
+BuildRequires : R-quantreg
+BuildRequires : buildreq-R
 
 %description
-package, this package provides several new high-level
-	     functions and methods, as well as additional utilities
-	     such as panel and axis annotation functions.
+Data source: U.S. Census Bureau, http://www.census.gov/popest/archives/pre-1980/PE-11.html
 
 %prep
 %setup -q -c -n latticeExtra
@@ -31,11 +31,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523312545
+export SOURCE_DATE_EPOCH=1552834916
 
 %install
+export SOURCE_DATE_EPOCH=1552834916
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1523312545
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -70,8 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library latticeExtra|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  latticeExtra || :
 
 
 %files
