@@ -4,12 +4,16 @@
 #
 Name     : R-latticeExtra
 Version  : 0.6.28
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz
 Summary  : Extra Graphical Utilities Based on Lattice
 Group    : Development/Tools
 License  : GPL-2.0+
+Requires: R-RColorBrewer
+Requires: R-deldir
+Requires: R-ggplot2
+Requires: R-quantreg
 BuildRequires : R-RColorBrewer
 BuildRequires : R-deldir
 BuildRequires : R-ggplot2
@@ -17,7 +21,9 @@ BuildRequires : R-quantreg
 BuildRequires : buildreq-R
 
 %description
-Data source: U.S. Census Bureau, http://www.census.gov/popest/archives/pre-1980/PE-11.html
+package, this package provides several new high-level
+	     functions and methods, as well as additional utilities
+	     such as panel and axis annotation functions.
 
 %prep
 %setup -q -c -n latticeExtra
@@ -26,13 +32,13 @@ Data source: U.S. Census Bureau, http://www.census.gov/popest/archives/pre-1980/
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1552889955
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562199926
 
 %install
-export SOURCE_DATE_EPOCH=1552889955
+export SOURCE_DATE_EPOCH=1562199926
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -61,12 +67,12 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  latticeExtra || :
+R CMD check --no-manual --no-examples --no-codoc latticeExtra || :
 
 
 %files
