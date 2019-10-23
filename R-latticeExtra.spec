@@ -4,26 +4,22 @@
 #
 Name     : R-latticeExtra
 Version  : 0.6.28
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/latticeExtra_0.6-28.tar.gz
 Summary  : Extra Graphical Utilities Based on Lattice
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-RColorBrewer
-Requires: R-deldir
-Requires: R-ggplot2
-Requires: R-quantreg
 BuildRequires : R-RColorBrewer
 BuildRequires : R-deldir
 BuildRequires : R-ggplot2
 BuildRequires : R-quantreg
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-package, this package provides several new high-level
-	     functions and methods, as well as additional utilities
-	     such as panel and axis annotation functions.
+Data source: U.S. Census Bureau, http://www.census.gov/popest/archives/pre-1980/PE-11.html
 
 %prep
 %setup -q -c -n latticeExtra
@@ -33,10 +29,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562199926
+export SOURCE_DATE_EPOCH=1571852876
 
 %install
-export SOURCE_DATE_EPOCH=1562199926
+export SOURCE_DATE_EPOCH=1571852876
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
