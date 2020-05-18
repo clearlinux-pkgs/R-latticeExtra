@@ -4,47 +4,43 @@
 #
 Name     : R-latticeExtra
 Version  : 0.6.29
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/latticeExtra_0.6-29.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/latticeExtra_0.6-29.tar.gz
 Summary  : Extra Graphical Utilities Based on Lattice
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-RColorBrewer
-Requires: R-deldir
-Requires: R-ggplot2
 Requires: R-jpeg
 Requires: R-png
-Requires: R-quantreg
 BuildRequires : R-RColorBrewer
-BuildRequires : R-deldir
-BuildRequires : R-ggplot2
 BuildRequires : R-jpeg
 BuildRequires : R-png
-BuildRequires : R-quantreg
 BuildRequires : buildreq-R
 
 %description
-Original data source: U.S. Census Bureau,
-<http://www.census.gov/popest/archives/pre-1980/PE-11.html>
+package, this package provides several new high-level
+	     functions and methods, as well as additional utilities
+	     such as panel and axis annotation functions.
 
 %prep
 %setup -q -c -n latticeExtra
+cd %{_builddir}/latticeExtra
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576779316
+export SOURCE_DATE_EPOCH=1589827292
 
 %install
-export SOURCE_DATE_EPOCH=1576779316
+export SOURCE_DATE_EPOCH=1589827292
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

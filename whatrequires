@@ -1,10 +1,7 @@
 # This file contains recursive sources that require this package
 R-DAAG
 R-Hmisc
-R-PerformanceAnalytics
 R-adegraphics
-R-ggridges
 R-haplo.stats
 R-rasterVis
 R-remote
-R-rms
