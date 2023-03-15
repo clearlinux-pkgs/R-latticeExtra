@@ -4,7 +4,7 @@
 #
 Name     : R-latticeExtra
 Version  : 0.6.30
-Release  : 48
+Release  : 49
 URL      : https://cran.r-project.org/src/contrib/latticeExtra_0.6-30.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/latticeExtra_0.6-30.tar.gz
 Summary  : Extra Graphical Utilities Based on Lattice
